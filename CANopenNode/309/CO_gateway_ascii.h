@@ -48,16 +48,19 @@ extern "C" {
  *
  * @ingroup CO_CANopen_309
  * @{
- * This module enables ascii command interface (CAN gateway), which can be used for master interaction with CANopen
- * network. Some sort of string input/output stream can be used, for example serial port + terminal on microcontroller
- * or stdio in OS or sockets, etc.
+ * This module enables ascii command interface (CAN gateway), which can be used for master interaction with CANopen network.
+ * Some sort of string input/output stream can be used,
+ * for example serial port + terminal on microcontrolleror stdio in OS or sockets, etc.
  *
- * For example, one wants to read 'Heartbeat producer time' parameter (0x1017,0) on remote node (with id=4). Parameter
- * is 16-bit integer. He can can enter command string: `[1] 4 read 0x1017 0 i16`. CANopenNode will use SDO client, send
- * request to remote node via CAN, wait for response via CAN and prints `[1] OK` to output stream on success.
+ * For example, one wants to read 'Heartbeat producer time' parameter (0x1017,0) on remote node (with id=4).
+ * Parameter is 16-bit integer. He can can enter command string: `[1] 4 read 0x1017 0 i16`.
+ * CANopenNode will use SDO client,
+ * send request to remote node via CAN,
+ * wait for response via CAN and prints `[1] OK` to output stream on success.
  *
- * This module is usually initialized and processed in CANopen.c file. Application should register own callback function
- * for reading the output stream. Application writes new commands with CO_GTWA_write().
+ * This module is usually initialized and processed in CANopen.c file.
+ * Application should register own callback function for reading the output stream.
+ * Application writes new commands with CO_GTWA_write().
  */
 
 /**
@@ -90,14 +93,16 @@ Response:
 "["<sequence>"]" OK | <value> |
                  ERROR:<SDO-abort-code> | ERROR:<internal-error-code>
 
-* Every command must be terminated with <CR><LF> ('\\r\\n'). characters. Same
-  is response. String is not null terminated, <CR> is optional in command.
-* Comments started with '#' are ignored. They may be on the beginning of the
-  line or after the command string.
-* 'sdo_timeout' is in milliseconds, 500 by default. Block transfer is
-  disabled by default.
-* If '<net>' or '<node>' is not specified within commands, then value defined
-  by 'set network' or 'set node' command is used.
+* Every command must be terminated with <CR><LF> ('\\r\\n'). characters.
+* Same  is response.
+* String is not null terminated, <CR> is optional in command.
+* Comments started with '#' are ignored.
+* They may be on the beginning of the line or after the command string.
+*
+* 'sdo_timeout' is in milliseconds, 500 by default. Block transfer is disabled by default.
+*
+* If '<net>' or '<node>' is not specified within commands,
+*   then value defined by 'set network' or 'set node' command is used.
 
 Datatypes:
 b                  # Boolean.
@@ -207,6 +212,7 @@ typedef enum {
     CO_GTWA_ST_LED = 0x82U                   /**< print 'status' of the node */
 } CO_GTWA_state_t;
 
+
 #if (((CO_CONFIG_GTW)&CO_CONFIG_GTW_ASCII_SDO) != 0) || defined CO_DOXYGEN
 /*
  * CANopen Gateway-ascii data types structure
@@ -222,15 +228,19 @@ typedef struct {
      * as binary data. It is a pointer to #CO_fifo_cpyTok2U8 function or similar and is used with SDO download. For
      * description of parameters see #CO_fifo_cpyTok2U8 */
     size_t (*dataTypeScan)(CO_fifo_t* dest, CO_fifo_t* src, uint8_t* status);
+
 } CO_GTWA_dataType_t;
+
 #endif /* (CO_CONFIG_GTW) & CO_CONFIG_GTW_ASCII_SDO */
+
+
 
 /**
  * CANopen Gateway-ascii object
  */
 typedef struct {
-    /** Pointer to external function for reading response from Gateway-ascii object. Pointer is initialized in
-     * CO_GTWA_initRead().
+    /** Pointer to external function for reading response from Gateway-ascii object.
+     * Pointer is initialized in CO_GTWA_initRead().
      *
      * @param object Void pointer to custom object
      * @param buf Buffer from which data can be read

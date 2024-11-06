@@ -72,7 +72,7 @@ OD_ATTR_PERSIST_COMM OD_PERSIST_COMM_t OD_PERSIST_COMM = {
     },
     .x1801_TPDOCommunicationParameter = {
         .highestSub_indexSupported = 0x06,
-        .COB_IDUsedByTPDO = 0x00000280,
+        .COB_IDUsedByTPDO = 0x00000180,
         .transmissionType = 0xFE,
         .inhibitTime = 0x0000,
         .eventTimer = 0x0000,
@@ -80,7 +80,7 @@ OD_ATTR_PERSIST_COMM OD_PERSIST_COMM_t OD_PERSIST_COMM = {
     },
     .x1802_TPDOCommunicationParameter = {
         .highestSub_indexSupported = 0x06,
-        .COB_IDUsedByTPDO = 0x00000280,
+        .COB_IDUsedByTPDO = 0x00000180,
         .transmissionType = 0xFE,
         .inhibitTime = 0x0000,
         .eventTimer = 0x0000,
@@ -88,7 +88,7 @@ OD_ATTR_PERSIST_COMM OD_PERSIST_COMM_t OD_PERSIST_COMM = {
     },
     .x1803_TPDOCommunicationParameter = {
         .highestSub_indexSupported = 0x06,
-        .COB_IDUsedByTPDO = 0x00000280,
+        .COB_IDUsedByTPDO = 0x00000180,
         .transmissionType = 0xFE,
         .inhibitTime = 0x0000,
         .eventTimer = 0x0000,
@@ -160,7 +160,7 @@ OD_ATTR_PERSIST_COMM OD_PERSIST_COMM_t OD_PERSIST_COMM = {
     },
     .x1A00_TPDOMappingParameter = {
         .numberOfMappedApplicationObjectsInPDO = 0x01,
-        .applicationObject1 = 0x60000020,
+        .applicationObject1 = 0x60000040,
         .applicationObject2 = 0x00000000,
         .applicationObject3 = 0x00000000,
         .applicationObject4 = 0x00000000,
@@ -172,7 +172,7 @@ OD_ATTR_PERSIST_COMM OD_PERSIST_COMM_t OD_PERSIST_COMM = {
     .x1A01_TPDOMappingParameter = {
         .numberOfMappedApplicationObjectsInPDO = 0x04,
         .applicationObject1 = 0x60380110,
-        .applicationObject2 = 0x00020008,
+        .applicationObject2 = 0x60380210,
         .applicationObject3 = 0x60380310,
         .applicationObject4 = 0x60380410,
         .applicationObject5 = 0x00000000,
@@ -181,22 +181,22 @@ OD_ATTR_PERSIST_COMM OD_PERSIST_COMM_t OD_PERSIST_COMM = {
         .applicationObject8 = 0x00000000
     },
     .x1A02_TPDOMappingParameter = {
-        .numberOfMappedApplicationObjectsInPDO = 0x01,
-        .applicationObject1 = 0x60380210,
-        .applicationObject2 = 0x00000000,
-        .applicationObject3 = 0x00000000,
-        .applicationObject4 = 0x00000000,
+        .numberOfMappedApplicationObjectsInPDO = 0x04,
+        .applicationObject1 = 0x60380510,
+        .applicationObject2 = 0x60380610,
+        .applicationObject3 = 0x60380710,
+        .applicationObject4 = 0x60380810,
         .applicationObject5 = 0x00000000,
         .applicationObject6 = 0x00000000,
         .applicationObject7 = 0x00000000,
         .applicationObject8 = 0x00000000
     },
     .x1A03_TPDOMappingParameter = {
-        .numberOfMappedApplicationObjectsInPDO = 0x01,
-        .applicationObject1 = 0x60380310,
-        .applicationObject2 = 0x00000000,
-        .applicationObject3 = 0x00000000,
-        .applicationObject4 = 0x00000000,
+        .numberOfMappedApplicationObjectsInPDO = 0x04,
+        .applicationObject1 = 0x60380910,
+        .applicationObject2 = 0x60380A10,
+        .applicationObject3 = 0x60380B10,
+        .applicationObject4 = 0x60380C10,
         .applicationObject5 = 0x00000000,
         .applicationObject6 = 0x00000000,
         .applicationObject7 = 0x00000000,
@@ -290,12 +290,14 @@ OD_ATTR_PERSIST_COMM OD_PERSIST_COMM_t OD_PERSIST_COMM = {
         .applicationObject7 = 0x00000000,
         .applicationObject8 = 0x00000000
     },
-    .x6000_nucleo_VAR32_6000 = 0x00000000,
+    .x6000_nucleo_VAR64_6000 = 0x6464646464646464,
     .x6001_nucleo_VAR32_6001 = 0xA8C467AA,
     .x6002_nucleo_VAR64_6002 = 0x00000000CEBA1234,
     .x6003_nucleo_VAR32_6003 = 0xABCD1234,
-    .x6038_nucleo_Array_sub0 = 0x0F,
-    .x6038_nucleo_Array = {0x1111, 0x2222, 0x3333, 0x4444, 0x5555, 0x6666, 0x7777, 0x8888, 0x9999, 0xAAAA, 0xBBBB, 0xCCCC, 0xDDDD, 0xEEEE, 0xF234}
+    .x6038_nucleo_Array_sub0 = 0x20,
+    .x6038_nucleo_Array = {0x0101, 0x2222, 0x3333, 0x4444, 0x5555, 0x6666, 0x7777, 0x8888, 0x9999, 0xAAAA, 0xBBBB, 0xCCCC, 0xDDDD, 0xEEEE, 0x0F0F, 0xF000, 0xF1F1, 0xF2F2, 0xF3F3, 0xF4F4, 0xF5F5, 0xF6F6, 0xF7F7, 0xF8F8, 0xF9F9, 0xFAFA, 0x1B1B, 0xF234, 0xFDFD, 0xFEFE, 0x1F1F, 0x2020},
+    .x6039_nucleo_String_sub0 = 0x0F,
+    .x6039_nucleo_String = {{'0', 0}, {'0', 0}, {'0', 0}, {'0', 0}, {'0', 0}, {'0', 0}, {'0', 0}, {'0', 0}, {'0', 0}, {'0', 0}, {'0', 0}, {'0', 0}, {'0', 0}, {'0', 0}, {'0', 0}}
 };
 
 OD_ATTR_RAM OD_RAM_t OD_RAM = {
@@ -360,11 +362,12 @@ typedef struct {
     OD_obj_record_t o_1A09_TPDOMappingParameter[9];
     OD_obj_record_t o_1A0A_TPDOMappingParameter[9];
     OD_obj_record_t o_1A0B_TPDOMappingParameter[9];
-    OD_obj_var_t o_6000_nucleo_VAR32_6000;
+    OD_obj_var_t o_6000_nucleo_VAR64_6000;
     OD_obj_var_t o_6001_nucleo_VAR32_6001;
     OD_obj_var_t o_6002_nucleo_VAR64_6002;
     OD_obj_var_t o_6003_nucleo_VAR32_6003;
     OD_obj_array_t o_6038_nucleo_Array;
+    OD_obj_array_t o_6039_nucleo_String;
 } ODObjs_t;
 
 static CO_PROGMEM ODObjs_t ODObjs = {
@@ -1738,10 +1741,10 @@ static CO_PROGMEM ODObjs_t ODObjs = {
             .dataLength = 4
         }
     },
-    .o_6000_nucleo_VAR32_6000 = {
-        .dataOrig = &OD_PERSIST_COMM.x6000_nucleo_VAR32_6000,
+    .o_6000_nucleo_VAR64_6000 = {
+        .dataOrig = &OD_PERSIST_COMM.x6000_nucleo_VAR64_6000,
         .attribute = ODA_SDO_RW | ODA_TPDO | ODA_MB,
-        .dataLength = 4
+        .dataLength = 8
     },
     .o_6001_nucleo_VAR32_6001 = {
         .dataOrig = &OD_PERSIST_COMM.x6001_nucleo_VAR32_6001,
@@ -1765,6 +1768,14 @@ static CO_PROGMEM ODObjs_t ODObjs = {
         .attribute = ODA_SDO_RW | ODA_TPDO | ODA_MB,
         .dataElementLength = 2,
         .dataElementSizeof = sizeof(uint16_t)
+    },
+    .o_6039_nucleo_String = {
+        .dataOrig0 = &OD_PERSIST_COMM.x6039_nucleo_String_sub0,
+        .dataOrig = &OD_PERSIST_COMM.x6039_nucleo_String[0][0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW | ODA_TPDO | ODA_STR,
+        .dataElementLength = 1,
+        .dataElementSizeof = sizeof(char[2])
     }
 };
 
@@ -1816,11 +1827,12 @@ static OD_ATTR_OD OD_entry_t ODList[] = {
     {0x1A09, 0x09, ODT_REC, &ODObjs.o_1A09_TPDOMappingParameter, NULL},
     {0x1A0A, 0x09, ODT_REC, &ODObjs.o_1A0A_TPDOMappingParameter, NULL},
     {0x1A0B, 0x09, ODT_REC, &ODObjs.o_1A0B_TPDOMappingParameter, NULL},
-    {0x6000, 0x01, ODT_VAR, &ODObjs.o_6000_nucleo_VAR32_6000, NULL},
+    {0x6000, 0x01, ODT_VAR, &ODObjs.o_6000_nucleo_VAR64_6000, NULL},
     {0x6001, 0x01, ODT_VAR, &ODObjs.o_6001_nucleo_VAR32_6001, NULL},
     {0x6002, 0x01, ODT_VAR, &ODObjs.o_6002_nucleo_VAR64_6002, NULL},
     {0x6003, 0x01, ODT_VAR, &ODObjs.o_6003_nucleo_VAR32_6003, NULL},
-    {0x6038, 0x10, ODT_ARR, &ODObjs.o_6038_nucleo_Array, NULL},
+    {0x6038, 0x21, ODT_ARR, &ODObjs.o_6038_nucleo_Array, NULL},
+    {0x6039, 0x10, ODT_ARR, &ODObjs.o_6039_nucleo_String, NULL},
     {0x0000, 0x00, 0, NULL, NULL}
 };
 

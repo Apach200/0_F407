@@ -535,10 +535,14 @@ extern "C" {
  * - #CO_CONFIG_FLAG_TIMERNEXT - Enable calculation of timerNext_us variable
  *   inside CO_NMT_process().
  */
+
+
 #ifdef CO_DOXYGEN
 #define CO_CONFIG_LEDS (CO_CONFIG_LEDS_ENABLE | CO_CONFIG_GLOBAL_FLAG_TIMERNEXT)
 #endif
-#define CO_CONFIG_LEDS_ENABLE 0x01
+#define CO_CONFIG_LEDS_ENABLE 0xFF
+
+
 /** @} */ /* CO_STACK_CONFIG_LEDS */
 
 /**

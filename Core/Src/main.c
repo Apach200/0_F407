@@ -294,7 +294,7 @@ int main(void)
 		   HAL_Delay(46);
 		  }
 	  }
-#endif
+
 
   for(uint8_t cnt=0;cnt<25;cnt++)
   {
@@ -302,6 +302,8 @@ int main(void)
 	  	//HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6 );//LED1_Pin___//LED1_GPIO_Port//green
   HAL_Delay(33);
   }
+
+#endif
 
    HAL_TIM_Base_Start_IT(&htim4);
 
@@ -361,13 +363,16 @@ int main(void)
       HAL_Delay(100);
 
 		Local_Count=0;
-		  OD_PERSIST_COMM.x6000_nucleo_VAR32_6000=0;
+		  //OD_PERSIST_COMM.x6000_nucleo_VAR64_6000=0;
 
 		  while (1)
 		  {
-			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, !canOpenNodeSTM32.outStatusLEDGreen);
-			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, !canOpenNodeSTM32.outStatusLEDRed  );//yellow
-//		         HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6 );//LED1_Pin___//LED1_GPIO_Port//green
+			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6,  !canOpenNodeSTM32.outStatusLEDGreen);
+			  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, canOpenNodeSTM32.outStatusLEDGreen);
+			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7,  !canOpenNodeSTM32.outStatusLEDRed  );
+			  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, canOpenNodeSTM32.outStatusLEDRed  );
+//			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, !canOpenNodeSTM32.outStatusLEDRed  );//yellow
+//		      HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6 );//LED1_Pin___//LED1_GPIO_Port//green
 
 			canopen_app_process();
 
@@ -379,15 +384,15 @@ int main(void)
 //				}
 
 
-			  if(HAL_GetTick() - Ticks>749)
+			  if(HAL_GetTick() - Ticks>499)
 			  {
 				Ticks = HAL_GetTick();
 
-				OD_PERSIST_COMM.x6000_nucleo_VAR32_6000++;
+				//OD_PERSIST_COMM.x6000_nucleo_VAR32_6000++;
 
-				tmp32u_0 = OD_PERSIST_COMM.x6000_nucleo_VAR32_6000;
+				tmp32u_0 = OD_PERSIST_COMM.x6000_nucleo_VAR64_6000;
 
-				//CO_TPDOsendRequest(&canOpenNodeSTM32.canOpenStack->TPDO[0] );
+				CO_TPDOsendRequest(&canOpenNodeSTM32.canOpenStack->TPDO[Local_Count] );
 
 				TerminalInterface.gState = HAL_UART_STATE_READY;
 				HAL_UART_Transmit_DMA( &TerminalInterface, (uint8_t*)( &tmp32u_0 ), 4);
@@ -396,10 +401,10 @@ int main(void)
 				Local_Count = Local_Count%4;
 
 				if(Local_Count==0){
-									OD_PERSIST_COMM.x6038_nucleo_Array[0]++;
+									//OD_PERSIST_COMM.x6038_nucleo_Array[0]++;
 								  }
 
-				CO_TPDOsendRequest(&canOpenNodeSTM32.canOpenStack->TPDO[Local_Count] );
+				//CO_TPDOsendRequest(&canOpenNodeSTM32.canOpenStack->TPDO[Local_Count] );
 			  }
 
     /* USER CODE END WHILE */

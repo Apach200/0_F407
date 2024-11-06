@@ -44,21 +44,24 @@
 #endif
 
 CO_ReturnError_t
-CO_GTWA_init(CO_GTWA_t* gtwa,
+CO_GTWA_init(
+			CO_GTWA_t* gtwa,
 #if (((CO_CONFIG_GTW)&CO_CONFIG_GTW_ASCII_SDO) != 0) || defined CO_DOXYGEN
-             CO_SDOclient_t* SDO_C, uint16_t SDOclientTimeoutTime_ms, bool_t SDOclientBlockTransfer,
+			CO_SDOclient_t* SDO_C,
+			uint16_t SDOclientTimeoutTime_ms,
+			bool_t SDOclientBlockTransfer,
 #endif
 #if (((CO_CONFIG_GTW)&CO_CONFIG_GTW_ASCII_NMT) != 0) || defined CO_DOXYGEN
-             CO_NMT_t* NMT,
+			CO_NMT_t* NMT,
 #endif
 #if (((CO_CONFIG_GTW)&CO_CONFIG_GTW_ASCII_LSS) != 0) || defined CO_DOXYGEN
-             CO_LSSmaster_t* LSSmaster,
+			CO_LSSmaster_t* LSSmaster,
 #endif
 #if (((CO_CONFIG_GTW)&CO_CONFIG_GTW_ASCII_PRINT_LEDS) != 0) || defined CO_DOXYGEN
-             CO_LEDs_t* LEDs,
+			CO_LEDs_t* LEDs,
 #endif
-             uint8_t dummy) {
-    (void)dummy;
+			uint8_t dummy) {
+    						(void)dummy;
     /* verify arguments */
     if ((gtwa == NULL)
 #if ((CO_CONFIG_GTW)&CO_CONFIG_GTW_ASCII_SDO) != 0

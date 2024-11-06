@@ -55,7 +55,8 @@
 #define OD_CNT_ARR_1010 4
 #define OD_CNT_ARR_1011 4
 #define OD_CNT_ARR_1016 8
-#define OD_CNT_ARR_6038 15
+#define OD_CNT_ARR_6038 32
+#define OD_CNT_ARR_6039 15
 
 
 /*******************************************************************************
@@ -331,12 +332,14 @@ typedef struct {
         uint32_t applicationObject7;
         uint32_t applicationObject8;
     } x1A0B_TPDOMappingParameter;
-    uint32_t x6000_nucleo_VAR32_6000;
+    uint64_t x6000_nucleo_VAR64_6000;
     uint32_t x6001_nucleo_VAR32_6001;
     uint64_t x6002_nucleo_VAR64_6002;
     uint32_t x6003_nucleo_VAR32_6003;
     uint8_t x6038_nucleo_Array_sub0;
     uint16_t x6038_nucleo_Array[OD_CNT_ARR_6038];
+    uint8_t x6039_nucleo_String_sub0;
+    char x6039_nucleo_String[OD_CNT_ARR_6039][2];
 } OD_PERSIST_COMM_t;
 
 typedef struct {
@@ -419,6 +422,7 @@ extern OD_ATTR_OD OD_t *OD;
 #define OD_ENTRY_H6002 &OD->list[45]
 #define OD_ENTRY_H6003 &OD->list[46]
 #define OD_ENTRY_H6038 &OD->list[47]
+#define OD_ENTRY_H6039 &OD->list[48]
 
 
 /*******************************************************************************
@@ -467,11 +471,12 @@ extern OD_ATTR_OD OD_t *OD;
 #define OD_ENTRY_H1A09_TPDOMappingParameter &OD->list[40]
 #define OD_ENTRY_H1A0A_TPDOMappingParameter &OD->list[41]
 #define OD_ENTRY_H1A0B_TPDOMappingParameter &OD->list[42]
-#define OD_ENTRY_H6000_nucleo_VAR32_6000 &OD->list[43]
+#define OD_ENTRY_H6000_nucleo_VAR64_6000 &OD->list[43]
 #define OD_ENTRY_H6001_nucleo_VAR32_6001 &OD->list[44]
 #define OD_ENTRY_H6002_nucleo_VAR64_6002 &OD->list[45]
 #define OD_ENTRY_H6003_nucleo_VAR32_6003 &OD->list[46]
 #define OD_ENTRY_H6038_nucleo_Array &OD->list[47]
+#define OD_ENTRY_H6039_nucleo_String &OD->list[48]
 
 
 /*******************************************************************************
